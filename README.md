@@ -53,3 +53,5 @@ Eg.
 
 
 If all goes well, when you hit [http://localhost:9999/](http://localhost:9999/) you should see the Nimbl welcome page.
+
+![Alt text](https://raw.githubusercontent.com/ssanj/Nimbl/master/nimbl_index.png)
