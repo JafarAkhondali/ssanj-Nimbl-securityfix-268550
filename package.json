@@ -5,10 +5,10 @@
   "keywords": ["server", "stub", "http"],
   "main": "common.js",
   "author": {"name": "sanjiv sahayam", "email": "sanjsmailbox@gmail.com" },
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "dependencies": {
     "mime": "~1.2.11",
     "querystring": "~0.2.0"
   },
-  "repository" : { "type" : "git", "url" : "http://github.com/npm/npm.git"  }
+  "repository" : { "type" : "git", "url" : "https://github.com/ssanj/Nimbl.git"  }
 }
