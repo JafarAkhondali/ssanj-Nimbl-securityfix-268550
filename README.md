@@ -59,5 +59,4 @@ If all goes well, when you hit [http://localhost:9999/](http://localhost:9999/) 
 Customisation
 -------------
 
-If you want to change the default index page served through nimbl simply create an index.html page of your choosing and drop it in the directory being served. In general, if you request a directory and that directory has a index.html page, it will be shown instead of a
-404.
+If you want to change the default index page served through nimbl simply create an index.html page of your choosing and drop it in the directory being served. In general, if you request a directory and that directory has a index.html page, it will be shown instead of a 404.
