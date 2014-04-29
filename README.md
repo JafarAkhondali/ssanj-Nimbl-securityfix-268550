@@ -16,28 +16,28 @@ you want to serve through Nimbl.
 
 Here's an example endpoints.js file:
 
-    var http = require("http"),
-      common = require(path.join(path.dirname(process.argv[1]), 'common'));
- 
-    var endpoints = module.exports = {}
- 
- 
-    /*
-     * Add your own endpoints to the array returned by getEndpoints. 
-     * Use the common.ep constructor to create an endpoint as in the example below.
-     * The ep constructor takes 2 parameters:
-     * 1. The path to the endpoint to serve. ('/hello' in the example below)
-     * 2. A function that takes in a request, response and uri as input and performs an 
-     *    output on the response object.
-     */
-    
-    endpoints.getEndpoints = [
-      new common.ep('/hello', function(request, response, uri) {
-              response.writeHead(200, {"Content-Type": "application/json"});
-              response.write(JSON.stringify({"messages":"Hello!"}));
-              response.end();
-      }),
-    ];
+    var http = require('http'),
+        path = require('path'),
+        common = require(path.join(path.dirname(process.argv[1]), 'common')),
+        endpoints = module.exports = {};
+     
+     
+      /*
+       * Add your own endpoints to the array returned by getEndpoints.
+       * Use the common.ep constructor to create an endpoint as in the example below.
+       * The ep constructor takes 2 parameters:
+       * 1. The path to the endpoint to serve. ('/hello' in the example below)
+       * 2. A function that takes in a request, response and uri as input and performs an
+       *    output on the response object.
+       */
+     
+      endpoints.getEndpoints = [
+        new common.ep('/hello', function(request, response, uri) {
+                response.writeHead(200, {"Content-Type": "application/json"});
+                response.write(JSON.stringify({"messages":"Hello!"}));
+                response.end();
+        }),
+      ];
 
 
 Running
