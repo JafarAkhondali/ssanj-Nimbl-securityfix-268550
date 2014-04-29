@@ -6,18 +6,18 @@ A small node HTTP server with customisable endpoint logic.
 Installation
 ------------
 
-npm install -g Nimbl
+    npm install -g nimbl
 
 Configuration
 -------------
 
-In order to customise Nimble you need to create an enpoints.js file in the directory that
+In order to customise Nimble you need to create an endpoints.js file in the directory that
 you want to serve through Nimbl.
 
 Here's an example endpoints.js file:
 
     var http = require("http"),
-    common = require(path.join(path.dirname(process.argv[1]), 'common'));
+      common = require(path.join(path.dirname(process.argv[1]), 'common'));
  
     var endpoints = module.exports = {}
  
@@ -25,15 +25,19 @@ Here's an example endpoints.js file:
     /*
      * Add your own endpoints to the array returned by getEndpoints. 
      * Use the common.ep constructor to create an endpoint as in the example below.
+     * The ep constructor takes 2 parameters:
+     * 1. The path to the endpoint to serve. ('/hello' in the example below)
+     * 2. A function that takes in a request, response and uri as input and performs an 
+     *    output on the response object.
      */
     
     endpoints.getEndpoints = [
-      new common.ep('/hello', function(request, response, uri){
+      new common.ep('/hello', function(request, response, uri) {
               response.writeHead(200, {"Content-Type": "application/json"});
               response.write(JSON.stringify({"messages":"Hello!"}));
               response.end();
       }),
-  ];
+    ];
 
 
 Running
@@ -48,4 +52,4 @@ Eg.
     node $NODE_PATH/nimbl/nimbl 9999
 
 
-If all goes well, when you hit http://localhost:9999/ you should see the Nimbl welcome page.
+If all goes well, when you hit [http://localhost:9999/](http://localhost:9999/) you should see the Nimbl welcome page.
