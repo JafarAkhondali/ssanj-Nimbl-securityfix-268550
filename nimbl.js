@@ -43,29 +43,37 @@ http.createServer(function (request, response) {
                  //use default index
                  filename = libpath.join(libpath.dirname(process.argv[1]), 'index.html');
                  console.log("default filename: " + filename);                 
-              }
-            
-                 fs.readFile(filename, "binary", function (err, file) {
-                    if (err) {
-                         response.writeHead(500, {
-                             "Content-Type": "text/plain"
-                        });
-                        response.write(err + "\n");
-                        response.end();
-                        return;
-                    }
-
-                    var type = mime.lookup(filename);
-                    response.writeHead(200, {
-                        "Content-Type": type
-                    });
-                    response.write(file, "binary");
-                    response.end();
-                });
-
+              } 
+              sendResponse(filename, response);
             });
-        }
+        } else {
+          //not a directory
+          sendResponse(filename, response);
+       }
 
     });
+    
+    function sendResponse(filename, response) {
+
+       fs.readFile(filename, "binary", function (err, file) {
+          if (err) {
+               response.writeHead(500, {
+                   "Content-Type": "text/plain"
+              });
+              response.write(err + "\n");
+              response.end();
+              return;
+          }
+
+          var type = mime.lookup(filename);
+          response.writeHead(200, {
+              "Content-Type": type
+          });
+          response.write(file, "binary");
+          response.end();
+          return;
+       });
+    }    
+
 }).listen(port);
 console.log("started server on port: " + port);
