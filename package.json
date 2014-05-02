@@ -1,6 +1,6 @@
 {
   "name": "nimbl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight http server with simple endipoint addition.",
   "keywords": ["server", "stub", "http"],
   "main": "common.js",

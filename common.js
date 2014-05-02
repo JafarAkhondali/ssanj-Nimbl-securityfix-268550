@@ -23,11 +23,11 @@ common.ep = function(matchPath, responseFunction, options) {
     self.doesMatch = function(request, incomingPath) {
     	var method = request.method.toLowerCase();
     	var matched = matchPath === incomingPath && options.method === method;
-    	console.log("ep: [" + matchPath + "], " + 
-    		        "ap: [" + incomingPath + "], " + 
-    		        "em: [" + options.method.toLowerCase() + "], " + 
-    		        "am: [" + method + "], " + 
-    		        "match: " + matched);
+    	console.log("matchPath: [" + matchPath + "], " + 
+    		        "reqPath: [" + incomingPath + "], " + 
+    		        "matchMethod: [" + options.method.toLowerCase() + "], " + 
+    		        "reqMethod: [" + method + "], " + 
+    		        "matched: " + matched);
         return matched;
     }
 

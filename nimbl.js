@@ -39,15 +39,15 @@ var libpath = require('path');
 
   /*
    * If enpoint.js has been loaded from the current directory and it has endpoints, then try
-   * and match the incoming request url with that of an endpoint.
+   * and match the incoming request uri with that of an endpoint.
    *
    * @param {Object} request - The request object.
    * @param {Object} response - The response object.
-   * @param {String} url - The request path.   
+   * @param {String} uri - The request path.   
    * @return {boolean} - If the url matches and endpoint, then sends back the response of the endpoint and
    * returns {true}. Otherwise returns {false}.
    */
-  function endpointMatched(request, response, url) {
+  function endpointMatched(request, response, uri) {
     var eps = endpoints.getEndpoints;
 
     for (index = 0; index < eps.length; index++) {
@@ -194,7 +194,7 @@ var libpath = require('path');
 
       console.log("request " + braced(uri));    
 
-      if (!endpointMatched(request, response, url)) {
+      if (!endpointMatched(request, response, uri)) {
         fs.exists(filename, function (exists) {
             if (!exists) {
                 serve404(response);
