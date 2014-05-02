@@ -11,6 +11,9 @@ Installation
 Configuration
 -------------
 
+If you want to use Nimbl as a simple webserver you have nothing to configure. Please see
+the Running section on how to run Nimbl.
+
 In order to customise Nimble you need to create an endpoints.js file in the directory that
 you want to serve through Nimbl.
 
