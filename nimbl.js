@@ -189,6 +189,11 @@ var libpath = require('path');
    */
   http.createServer(function (request, response) {
 
+    if (path.normalize(decodeURI(uri)) !== decodeURI(uri)) {
+        response.statusCode = 403;
+        response.end();
+        return;
+    }
       var uri = url.parse(request.url).pathname,
           filename = join(path, uri);
 
